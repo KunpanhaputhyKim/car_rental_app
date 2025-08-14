@@ -1,0 +1,14 @@
+{
+  "name": "car_rental_app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node backend/server.js",
+    "dev": "concurrently -n API,WEB -c auto \"npm --prefix backend run server\" \"npm --prefix frontend run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

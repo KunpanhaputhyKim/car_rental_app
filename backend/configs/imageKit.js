@@ -1,10 +1,18 @@
+import "dotenv/config";
 import ImageKit from "imagekit";
 
-// ImageKit Configuration
-var imagekit = new ImageKit({
-  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
-  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-});
+const { IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY, IMAGEKIT_URL_ENDPOINT } = process.env;
+
+let imagekit = null;
+
+if (IMAGEKIT_PUBLIC_KEY && IMAGEKIT_PRIVATE_KEY && IMAGEKIT_URL_ENDPOINT) {
+  imagekit = new ImageKit({
+    publicKey: IMAGEKIT_PUBLIC_KEY,
+    privateKey: IMAGEKIT_PRIVATE_KEY,
+    urlEndpoint: IMAGEKIT_URL_ENDPOINT,
+  });
+} else {
+  console.warn("⚠️ ImageKit env vars missing. Set IMAGEKIT_PUBLIC_KEY, IMAGEKIT_PRIVATE_KEY, IMAGEKIT_URL_ENDPOINT");
+}
 
 export default imagekit;
