@@ -19,9 +19,7 @@ app.use(cors());
 app.use(express.json());
 
 // Health Check
-app.get("/", (req, res) => {
-  res.send("Server is running!");
-});
+app.get("/health", (_req, res) => res.send("ok"));
 
 // API Routes
 app.use("/api/user", userRouter);
