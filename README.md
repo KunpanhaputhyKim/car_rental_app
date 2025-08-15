@@ -29,7 +29,6 @@ Single-service deployment: the backend serves the built React app in production.
 
 - Install dependencies (root): npm install
 - Run in dev mode: npm run dev
-
-Running on: http://localhost:4000
+- Running on: http://localhost:4000
 
 Deployed web service: https://car-rental-app-ckh3.onrender.com/
